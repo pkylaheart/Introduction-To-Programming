@@ -1,0 +1,1 @@
+Hello :), These are the collections of activities, code challenges and project that I did for my first semester in Introduction to Programming Subject.
