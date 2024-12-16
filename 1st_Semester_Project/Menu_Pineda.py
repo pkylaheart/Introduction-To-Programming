@@ -533,6 +533,7 @@ def less_eq():
 
 def if_statement():
     print("\t\t-- IF STATEMENT --")
+    print("Explanation: The 'if' statement allows you to execute a block of code only if a specified condition is True.")
     print("Code:")
     print("x = 5\nif x > 3:\n\tprint('x is greater than 3')")
     print("Output:")
@@ -546,6 +547,7 @@ def if_statement():
 
 def elif_statement():
     print("\t\t-- ELIF STATEMENT --")
+    print("Explanation: The 'elif' (short for 'else if') statement is used to check multiple conditions.")
     print("Code:")
     print("x = 5\nif x > 10:\n\tprint('x is greater than 10')\nelif x > 3:\n\tprint('x is greater than 3')")
     print("Output:")
@@ -561,6 +563,7 @@ def elif_statement():
 
 def else_statement():
     print("\t\t-- ELSE STATEMENT --")
+    print("Explanation: The 'else' statement is used when all previous conditions in 'if' and 'elif' have failed.")
     print("Code:")
     print("x = 2\nif x > 3:\n\tprint('x is greater than 3')\nelse:\n\tprint('x is not greater than 3')")
     print("Output:")
@@ -576,6 +579,7 @@ def else_statement():
 def logical_operators_menu():
     while True:
         print("\t\t-- LOGICAL OPERATORS -- \n")
+        
         print("1. AND \t\t\t4. OR \n2. NOT \t\t\t5. IS \n3. IS NOT \t\t6. BACK")
         operator_choice = input("\nEnter number:  ")
 
@@ -713,6 +717,8 @@ def py_loop_menu():
 def for_loop():
     while True:
         print("\t\t-- FOR LOOP --")
+        print("Explanation: A 'for' loop is used to iterate over a sequence (like a list or a range).")
+        print("It automatically handles the loop counter and stops when the sequence ends.")
         print("Code:")
         print("for i in range(5):\n\tprint(i)")
         print("Output:")
@@ -731,6 +737,8 @@ def for_loop():
 def while_loop():
     while True:
         print("\t\t-- WHILE LOOP --")
+        print("Explanation: A 'while' loop repeatedly executes a block of code as long as the given condition is True.")
+        print("It requires explicit management of the loop counter or condition inside the loop.")
         print("Code:")
         print("i = 0\nwhile i < 5:\n\tprint(i)\n\ti += 1")
         print("Output:")
@@ -778,6 +786,7 @@ def py_functions_menu():
 def func_syntax():
     while True:
         print("\t\t-- FUNCTION SYNTAX --")
+        print("Explanation: A function is defined using the 'def' keyword. Functions allow you to group code into reusable blocks.")
         print("Code:") 
         print("def my_function():\n\tprint('Hello World')\nmyfunctions()\n")
         print("Output:")
@@ -793,6 +802,7 @@ def func_syntax():
 def func_return():
     while True:
         print("\t\t-- FUNCTION RETURN --")
+        print("Explanation: Functions can return values using the 'return' keyword, which can then be used elsewhere in the program.")
         print("Code:") 
         print("def my_function():\n\treturn 5\nprint(my_function())\n")
         print("Output:")
@@ -809,6 +819,7 @@ def func_return():
 def func_args():
     while True:
         print("\t\t-- FUNCTION ARGUMENTS --")
+        print("Explanation: Functions can accept arguments, which are values passed to the function when it is called.")
         print("Code:") 
         print("def greet(name):\n\tprint('Hello ' + name)\n\ngreet('Alice')\n")
         print("Output:")
@@ -854,6 +865,7 @@ def remove_from_list():
     while True:
         my_list = [1, 2, 3, 4, 5]
         print("\t\t-- REMOVE ITEM FROM LIST --\n")
+        print("Explanation: The 'remove()' method removes the first occurrence of a specified element from a list.")
         print(f"Original List: {my_list}")
         print("my_list.remove(1)\n")
         print("Output:")
@@ -866,6 +878,7 @@ def remove_from_list():
 
 def list_creation():
     print("\t\t-- LIST CREATION --")
+    print("Explanation: Lists in Python are ordered collections of items, defined using square brackets [].")
     print("Code:")
     print("my_list = [1, 2, 3, 'hello']\n")
     print("Output:")
@@ -878,6 +891,7 @@ def list_creation():
 
 def accessing_list_elements():
     print("\t\t-- ACCESSING LIST ELEMENTS --")
+    print("Explanation: You can access elements of a list using their index, starting from 0.")
     print("Code:")
     print("my_list = [1, 2, 3, 'hello']\nprint(my_list[0]\n") 
     print("Output:")
@@ -890,6 +904,7 @@ def accessing_list_elements():
 
 def adding_elements():
     print("\t\t-- ADDING ELEMENTS TO A LIST --")
+    print("Explanation: The 'append()' method adds an element to the end of the list.")
     print("Code:")
     print("my_list = [1, 2, 3]\nmy_list.append(4)\nprint(my_list)\n")
     print("Output:")
@@ -934,18 +949,17 @@ def menu():
         else:
             print("Invalid option, Try again!")
             continue
-menu()
-# while True:
-#     name = input("Good day! May I know your name? ").title()
-#     print(f"Hi, {name}")
-#     start = input("Do you want to start the Program? (Yes/No) \n --> ")
+while True:
+    name = input("Good day! May I know your name? ").title()
+    print(f"Hi, {name}")
+    start = input("Do you want to start the Program? (Yes/No) \n --> ")
     
-#     clear_screen()
+    clear_screen()
 
-#     if start.lower() == "yes":
-#         print("Lets Start!")
-#         menu()
-#         break
-#     else:
-#         print("Okay, Have a great day!")
-#         break
+    if start.lower() == "yes":
+        print("Lets Start!")
+        menu()
+        break
+    else:
+        print("Okay, Have a great day!")
+        break
