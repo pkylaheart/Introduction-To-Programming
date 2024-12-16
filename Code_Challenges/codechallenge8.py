@@ -26,8 +26,3 @@ elif final_grade >= 75 :
 else:
 	print(f"Your prelim grade is {final_grade}.")
 	print("Sorry, you failed the course.")
-
-
-
-
-
