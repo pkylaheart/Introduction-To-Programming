@@ -3,7 +3,7 @@ names = []
 
 while True:
     ui = input(" Enter name: ")
-    if ui.lower().strip() == "stop":
+    if ui.lower() == "stop":
         for name in names:
             print(f" {name}")
         break
