@@ -849,12 +849,16 @@ def py_list_menu():
 
         if print_ask == '1':
             list_creation()
+            break
         elif print_ask == '2':
             accessing_list_elements()
+            break
         elif print_ask == '3':
             adding_elements()
+            break
         elif print_ask == '4':
             remove_from_list()
+            break
         elif print_ask == '5':
             menu()
             break
@@ -862,7 +866,6 @@ def py_list_menu():
             print("Invalid Input.. Try again\n")
 
 def remove_from_list():
-    while True:
         my_list = [1, 2, 3, 4, 5]
         print("\t\t-- REMOVE ITEM FROM LIST --\n")
         print("Explanation: The 'remove()' method removes the first occurrence of a specified element from a list.")
