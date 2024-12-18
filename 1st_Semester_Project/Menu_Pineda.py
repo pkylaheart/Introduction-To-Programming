@@ -1500,17 +1500,3 @@ def menu():
             print("Invalid option, Try again!")
             continue
 menu()
-# while True:
-#     name = input("Good day! May I know your name? ").title()
-#     print(f"Hi, {name}")
-#     start = input("Do you want to start the Program? (Yes/No) \n --> ")
-    
-#     clear_screen()
-
-#     if start.lower() == "yes":
-#         print("Lets Start!")
-#         menu()
-#         break
-#     else:
-#         print("Okay, Have a great day!")
-#         break
