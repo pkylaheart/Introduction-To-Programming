@@ -1,4 +1,5 @@
 import os
+import time
 
 def clear_screen():
     if os.name == 'nt':  
@@ -58,6 +59,17 @@ def string():
         print("Try printing a String!")
         string = input("Input a word or letter: ")
         print(string)
+        example = input("Do you want more example: (yes/no)")
+        clear_screen()
+        
+        if example != 'yes':
+            print("Thank you for exploring strings!")
+            break
+        
+        clear_screen()
+        from activity2 import example_on_input
+        example_on_input()
+        
             
         back1 = input("--------------------- \nPress Any to go back.")
 
@@ -80,7 +92,7 @@ def boolean():
             print("\tprint('Take an umbrella!')\n") 
             print("Output:")
             print("Take an umbrella!\n")
-            back1 = input("--------------------- \nPress Any to go back.")
+            back1 = input("--------------------- \nPress 'Enter' to go back.")
 
             clear_screen()
 
@@ -165,40 +177,62 @@ def escape_char():
 
 def newline():
     while True:
-            print("\t\t-- NEW LINE --")
-            print("' \\n ' Inserts a newline.\n")
-            print("Code:") 
-            print("print('Hello\\nWorld')\n")
-            print("Output:")
-            print("Hello\nWorld\n")
+        print("\t\t-- NEW LINE --")
+        print("' \\n ' Inserts a newline.\n")
+        print("Code:") 
+        print("print('Hello\\nWorld')\n")
+        print("Output:")
+        print("Hello\nWorld\n")
+        ex = input("\nDo you want to try for yourself? (yes/no) : ") 
+
+        clear_screen()
+
+        if ex.lower() == 'yes':
+            print("\t\t-- NEWLINE --")
+            bs = input("Type a word: ")
+            b2 = input("Type another word: ")
+            print("\nOutput: ")
+            print(f"\n{bs}\n\n{b2}")
             back1 = input("--------------------- \nPress Any to go back.")
-
+            break
             clear_screen()
+            escape_char()
+            
+        
+        else: 
+            clear_screen()
+            escape_char()
+            break
 
-            if input == input:
-                escape_char()
-                break
-            else: 
-                print("invalid input")
-                continue
 def tab():
     while True:
+        print("\t\t-- TAB --")
+        print("' \\t ' Used to insert a tab.\n")
+        print("Code:") 
+        print("print('Hello\\tWorld')\n")
+        print("Output:")
+        print("Hello\tWorld\n")
+        ex = input("\nDo you want to try for yourself? (yes/no) : ") 
+    
+        clear_screen()
+
+        if ex.lower() == 'yes':
             print("\t\t-- TAB --")
-            print("' \\t ' Used to insert a tab.\n")
-            print("Code:") 
-            print("print('Hello\\tWorld')\n")
-            print("Output:")
-            print("Hello\tWorld\n")
+            bs = input("Type a word: ")
+            b2 = input("Type another word: ")
+            print("\nOutput: ")
+            print(bs,"\t\t\t\t\t\t",b2)
             back1 = input("--------------------- \nPress Any to go back.")
-
+            break
             clear_screen()
+            escape_char()
+            
+        
+        else: 
+            clear_screen()
+            escape_char()
+            break
 
-            if input == input:
-                escape_char()
-                break
-            else: 
-                print("invalid input")
-                continue
 def backslash():
     while True:
         print("\t\t-- BACKSLASH --")
@@ -207,17 +241,27 @@ def backslash():
         print("print('Hello\\\\World')\n")
         print("Output:")
         print("Hello\\World\n")
-
-        back1 = input("--------------------- \nPress Any to go back.")
-
+        ex = input("\nDo you want to try for yourself? (yes/no) : ") 
+        
         clear_screen()
 
-        if input == input:
+        if ex.lower() == 'yes':
+            print("\t\t-- BACKSLASH --")
+            bs = input("Type a word: ")
+            b2 = input("Type another word: ")
+            print("\nOutput: ")
+            print(bs,"\\")
+            print(b2,"\\n")
+            back1 = input("--------------------- \nPress Any to go back.")
+            break
+            clear_screen()
+            escape_char()
+            
+        
+        else: 
+            clear_screen()
             escape_char()
             break
-        else: 
-            print("invalid input")
-            continue
 def backspace():
     while True:
         print("\t\t-- BACKSPACE --")
@@ -226,24 +270,33 @@ def backspace():
         print("print('Hello\\b World')\n")
         print("Output:")
         print("Hello\bWorld\n")
-        back1 = input("--------------------- \nPress Any to go back.")
-
+        ex = input("\nDo you want to try for yourself? (yes/no) :")
+        
         clear_screen()
 
-        if input == input:
+        if ex.lower() == 'yes':
+            print("\t\t-- BACKSPACE --")
+            bs = input("Type a word: ")
+            bs = bs[:-1]
+            print("\nOutput: ")
+            print(bs)
+
+            back1 = input("--------------------- \nPress Any to go back.")
+            break
+            clear_screen()
+            escape_char()
+            
+        
+        else: 
+            clear_screen()
             escape_char()
             break
-        else: 
-            print("invalid input")
-            continue
-
 def comments():
     print("\t     -- COMMENTS --")                 
     print("#: Used for single-line comments.")
     print("Code:") 
     print("#Hello World\n")
     print("Output:\n")
-    #HelloWorld # the ouput didn't show but it should appear like this #HelloWorld
     print("\n''' or \""": Used for multi-line comments")
     print("Code:") 
     print("'''Hello World'''\n")
@@ -253,98 +306,186 @@ def comments():
     
     clear_screen()
 
-def arithmetic_operations():
+def val_number(valid):
     while True:
-        print("\t\t-- ARITHMETIC OPERATIONS --")
-        print("Choose an operation:")
-        print("1. Addition (+) \t\t2. Subtraction (-)")
-        print("3. Multiplication (*) \t\t4. Division (/) \t\t5. Back\n")
-        
-        choice = input("Enter Number: ")
-        
-        clear_screen()
+        try:
+            return int(input(valid))  # Try to convert the input to an integer
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")  # Handle the error
 
-        if choice == '1': 
-            addition()        
-        elif choice == '2': 
-            substraction()
-        elif choice == '3':  
-            multiplication()
-        elif choice == '4':  
-            division()
-        elif choice == '5':
-            menu()
-            break
-        else: 
-            print("invalid input")
-            clear_screen()
+def arithmetic_operations():
+    print("\t\t-- ARITHMETIC OPERATIONS --")
+    print("Choose an operation:")
+    print("1. Addition (+) \t\t2. Subtraction (-)\t\t5. Modulus (%)")
+    print("3. Multiplication (*) \t\t4. Division (/)\t\t\t6. Exponentiation (**) \t\t7. Back\n")
+    
+    choice = input("Pick an Operator: ")
+    clear_screen()
+
+    while True:
+        if choice == ' ' or '':
             arithmetic_operations()
-def addition():
-    print("\t\t\tADDITION OPERATION\n")
-    print("Explanation: Addition adds two numbers together.\n")
-    print("Code:")
-    print("num1 = 5")
-    print("num2 = 3")
-    print("result = num1 + num2\n")
-    result = 5 + 3
-    print(f"Output: {result}")
-    input("--------------------- \nPress Any to go back.")
-
-    clear_screen()
-
-    if input == input:
-        arithmetic_operations()
+        elif choice == '7':
+            clear_screen()
+            menu()
+        elif choice == '1':
+            number1 = val_number("Enter the first number: ")
+            number2 = val_number("Enter the second number: ")
+            print(f"The sum of {number1} and {number2} is: {number1 + number2}")
+            while True:    
+                back1 = input("\nDo you want to perform another operation? (yes/no): ").lower()
+                clear_screen()
+                if back1 == 'yes':
+                    clear_screen()
+                    arithmetic_operations()
+                    break
+                elif back1 == 'no':
+                    clear_screen()
+                    menu()
+                    break  
+                else:
+                    print("Invalid Choice, Try again")
+                    continue
+        elif choice == '2':
+            number1 = val_number("Enter the first number: ")
+            number2 = val_number("Enter the second number: ")
+            print(f"The difference between {number1} and {number2} is: {number1 - number2}")
+            while True:    
+                back1 = input("\nDo you want to perform another operation? (yes/no): ").lower()
+                clear_screen()
+                if back1 == 'yes':
+                    clear_screen()
+                    arithmetic_operations()
+                    break
+                elif back1 == 'no':
+                    clear_screen()
+                    menu()
+                    break  
+                else:
+                    print("Invalid Choice, Try again")
+                    continue
+        elif choice == '3':
+            number1 = val_number("Enter the first number: ")
+            number2 = val_number("Enter the second number: ")
+            print(f"The product of {number1} and {number2} is: {number1 * number2}")
+            while True:    
+                back1 = input("\nDo you want to perform another operation? (yes/no): ").lower()
+                clear_screen()
+                if back1 == 'yes':
+                    clear_screen()
+                    arithmetic_operations()
+                    break
+                elif back1  == 'no':
+                    clear_screen()
+                    menu()
+                    break  
+                else:
+                    print("Invalid Choice, Try again")
+                    continue
+        elif choice == '4':
+            number1 = val_number("Enter the first number: ")
+            number2 = val_number("Enter the second number: ")
+            if number2 == 0:
+                print("Error.")
+                while True:    
+                    back1 = input("\nDo you want to perform another operation? (yes/no): ").lower()
+                    clear_screen()
+                    if back1 == 'yes':
+                        clear_screen()
+                        arithmetic_operations()
+                        break
+                    elif back1  == 'no':
+                        clear_screen()
+                        menu()
+                        break  
+                    else:
+                        print("Invalid Choice, Try again")
+                        continue
+            print(f"The quotient of {number1} divided by {number2} is: {number1 / number2}")
+            while True:    
+                back1 = input("\nDo you want to perform another operation? (yes/no): ").lower()
+                clear_screen()
+                if back1 == 'yes':
+                    clear_screen()
+                    arithmetic_operations()
+                    break
+                elif back1  == 'no':
+                    clear_screen()
+                    menu()
+                    break  
+                else:
+                    print("Invalid Choice, Try again")
+        elif choice == '5':
+            number1 = val_number("Enter the first number: ")
+            number2 = val_number("Enter the second number: ")
+            if number2 == 0:
+                print("Error.")
+                while True:
+                    back1 = input("\nDo you want to perform another operation? (yes/no): ").lower()
+                    clear_screen()
+                    if back1 == 'yes':
+                        clear_screen()
+                        arithmetic_operations()
+                        break
+                    elif back1  == 'no':
+                        clear_screen()
+                        menu()
+                        break  
+                    else:
+                        print("Invalid Choice, Try again")
+                        continue
+            else:
+                print(f"The modulus of {number1} and {number2} is: {number1 % number2}")
+                while True:
+                    back1 = input("\nDo you want to perform another operation? (yes/no): ").lower()
+                    clear_screen()
+                    if back1 == 'yes':
+                        clear_screen()
+                        arithmetic_operations()
+                        break
+                    elif back1 == 'no':
+                        clear_screen()
+                        menu()
+                        break  
+                    else:
+                        print("Invalid Choice, Try again") 
+                        continue
         
-            
-def substraction():
-    print("\t\tSUBSTRACTION OPERATION\n")
-    print("Explanation: Subtraction subtracts the second number from the first.\n")
-    print("Code:")
-    print("num1 = 5")
-    print("num2 = 3")
-    print("result = num1 - num2\n")
-    result = 5 - 3
-    print(f"Output: {result}")
-    input("--------------------- \nPress Any to go back.")
+        elif choice == '6':
+            number1 = val_number("Enter the first number: ")
+            number2 = val_number("Enter the second number: ")
+            print(f"The result of {number1} raised to the power of {number2} is: {number1 ** number2}")
+            while True:    
+                back1 = input("\nDo you want to perform another operation? (yes/no): ").lower()
+                clear_screen()
+                if back1 == 'yes':
+                    clear_screen()
+                    arithmetic_operations()
+                    break
+                elif back1  == 'no':
+                    clear_screen()
+                    menu()
+                    break  
+                else:
+                    print("Invalid Choice, Try again")
+                    continue
+        else:
+            print("Invalid choice. Please select a valid option.")
+            while True:    
+                back1 = input("\nDo you want to perform another operation? (yes/no): ").lower()
+                clear_screen()
+                if back1 == 'yes':
+                    clear_screen()
+                    arithmetic_operations()
+                    break
+                elif back1  == 'no':
+                    clear_screen()
+                    menu()
+                    break  
+                else:
+                    print("Invalid Choice, Try again")
+                    continue
 
-    clear_screen()
-
-    if input == input:
-        arithmetic_operations()
-        
-def multiplication():
-    print("\t\tMULTIPLICATION OPERATION\n")
-    print("Explanation: Multiplication multiplies two numbers together.\n")
-    print("Code:")
-    print("num1 = 5")
-    print("num2 = 3")
-    print("result = num1 * num2\n")
-    result = 5 * 3
-    print(f"Output: {result}")
-    input("--------------------- \nPress Any to go back.")
-
-    clear_screen()
-
-    if input == input:
-        arithmetic_operations()
-        
-def division():
-    print("\t\tDIVISION OPERATION\n")
-    print("Explanation: Subtraction subtracts the second number from the first.\n")
-    print("Code:")
-    print("num1 = 6")
-    print("num2 = 3")
-    print("result = num1 / num2\n")
-    result = 6 / 3
-    print(f"Output: {result}")
-    input("--------------------- \nPress Any to go back.")
-
-    clear_screen()
-
-    if input == input:
-        arithmetic_operations()
-                
-                        
 def py_variables_menu():
     while True:
         print("Let's get started with Python Variables. Pick any topic of creating variables in python below. \n ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮\n\t     ⋘ VARIABLES ⋙ \n\n\t 1. ASSIGN VARIABLES \n\t 2. OUTPUT VARIBLES \n\t 3. CASTING \n\t 4. QUIT \n ╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯")
@@ -362,8 +503,8 @@ def py_variables_menu():
             menu() 
             break
         else:
-            print("Invalid Input.. Try again \n"
-            )
+            print("Invalid Input.. Try again \n")
+            continue
 def create_var():
     while True:
         print("\t\t-- CREATING VARIABLES --")
@@ -403,6 +544,16 @@ def multi_val():
         print("a = 21, \nb = 'Kyla' \nc = 'Lucena City'\n\nprint(a ,b , c)\n")
         print("Output:")
         print("21 , Kyla, Lucena City\n")
+        ex = input("\nDo you want to try for yourself? (yes/no)")
+        if ex.lower() == 'yes':
+            from activity3 import biodata
+            clear_screen()
+            biodata()
+            
+        else:
+            clear_screen()
+            py_variables_menu()
+            break
         back1 = input("--------------------- \nPress Any to go back.")
 
         clear_screen()
@@ -539,11 +690,44 @@ def if_statement():
     print("Output:")
     x = 5
     if x > 3:
-        print("x is greater than 3")
-    input("\nPress Enter to go back.")
-    clear_screen()
-    py_conditional_menu()
+        print("x is greater than 3\n")
+    while True:
+            ask1 = input("Do you want to try it? [yes/no] ")
+            if ask1.lower() == 'yes':
+                clear_screen()
+                print("Loading... ")
+                time.sleep(2)
+                clear_screen()
+                print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                print("     Greater Than or less Than ")
+                print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                num = input("Enter a number: ")
 
+                try:
+                    num = int(num)
+                    
+                    if num < 10:
+                        print(f"The number {num} is less than 10.")
+                        input("\nPress 'Enter' to go back.")
+                        clear_screen()
+                        break
+                    if num == 10:
+                        print("The number is exactly 10.")
+                        input("\nPress 'Enter' to go back.")
+                        clear_screen()
+                        break
+                    if num > 10:
+                        print(f"The number {num} is greater than 10.")
+                        input("\nPress 'Enter' to go back.")
+                        clear_screen()
+                        break
+                except ValueError:
+                    print("Invalid input. Please enter a valid number.")
+            elif ask1.lower() == 'no':
+                clear_screen()
+                py_conditional_menu()
+            elif ask1.lower() == " " or '':
+                continue
 
 def elif_statement():
     print("\t\t-- ELIF STATEMENT --")
@@ -553,12 +737,47 @@ def elif_statement():
     print("Output:")
     x = 5
     if x > 10:
-        print("x is greater than 10")
+        print("x is greater than 10\n")
     elif x > 3:
-        print("x is greater than 3")
-    input("\nPress Enter to go back.")
-    clear_screen()
-    py_conditional_menu()
+        print("x is greater than 3\n")
+        while True:
+            ask1 = input("Do you want to try it? [yes/no] ")
+            if ask1.lower() == 'yes':
+                clear_screen()
+                print("Loading... Activity10")
+                time.sleep(2)
+                clear_screen()
+                print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                print("     DLL IDENTIFICATION ")
+                print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                from activity10 import identification
+                identification()
+                while True:
+                    ask2 = input("\nDo you want to try another example? [yes/no] ")
+                    if ask2.lower() == 'yes':
+                        clear_screen()
+                        print("Loading... Code Challenge 4")
+                        time.sleep(2)
+                        clear_screen()
+                        print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                        print("           GROCERY   ")
+                        print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                        from codechallenge4 import grocery
+                        grocery()
+                        input("\nPress 'Enter' to go back.")
+                        clear_screen()
+                        py_conditional_menu()
+                    elif ask2.lower() == 'no':
+                        clear_screen()
+                        py_conditional_menu()
+                    elif ask2.lower() == " " or '':
+                        continue
+            elif ask1.lower() == 'no':
+                clear_screen()
+                py_conditional_menu()
+            elif ask1.lower() == " " or '':
+                continue
+    
 
 
 def else_statement():
@@ -569,12 +788,45 @@ def else_statement():
     print("Output:")
     x = 2
     if x > 3:
-        print("x is greater than 3")
+        print("x is greater than 3\n")
     else:
-        print("x is not greater than 3")
-    input("\nPress Enter to go back.")
-    clear_screen()
-    py_conditional_menu()
+        print("x is not greater than 3\n")
+    while True:
+            ask1 = input("Do you want to try it? [yes/no] ")
+            if ask1.lower() == 'yes':
+                clear_screen()
+                print("Loading... Activity 7")
+                time.sleep(2)
+                clear_screen()
+                print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                print("     GOLD IDENTIFIER ")
+                print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                from activity7 import gold_identifier
+                gold_identifier()
+                ask2 = input("\nDo you want to try another example? [yes/no] ")
+                if ask2.lower() == 'yes':
+                    clear_screen()
+                    print("Loading... Activity 8")
+                    time.sleep(2)
+                    clear_screen()
+                    print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                    print("          PASSWORD ")
+                    print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                    from activity8 import password
+                    password()
+                    input("\nPress 'Enter' to go back.")
+                    clear_screen()
+                    break
+                elif ask2.lower() == 'no':
+                    clear_screen()
+                    py_conditional_menu()
+                elif ask2.lower() == " " or '':
+                    continue
+            elif ask1.lower() == 'no':
+                clear_screen()
+                py_conditional_menu()
+            elif ask1.lower() == " " or '':
+                continue
 
 def logical_operators_menu():
     while True:
@@ -582,7 +834,6 @@ def logical_operators_menu():
         
         print("1. AND \t\t\t4. OR \n2. NOT \t\t\t5. IS \n3. IS NOT \t\t6. BACK")
         operator_choice = input("\nEnter number:  ")
-
         clear_screen()
 
         if operator_choice == '1':
@@ -612,12 +863,30 @@ def and_operator():
     x = 7
     y = 8
     if x > 5 and y < 10:
-        print("Both conditions are true")
+        print("Both conditions are true\n")
     else:
         print("One or both conditions are false")
-    
-    input("\nPress Any to go back.")
-    clear_screen()
+    while True:
+        ask1 = input("Do you want to try it for youself? [yes/no] ")
+        if ask1.lower() == 'yes':
+            clear_screen()
+            print("Loading... Activity9")
+            time.sleep(2)
+            clear_screen()
+            print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+            print("\t AND Operator ")
+            print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+            from activity9 import age_cal
+            age_cal()
+            input("\nPress 'Enter' to go back.")
+            clear_screen()
+            break
+        elif ask1.lower() == 'no':
+            clear_screen()
+            logical_operators_menu()
+        elif ask1.lower() == " " or '':
+            continue
+        
 
 def or_operator():
     print("The `or` operator returns `True` if at least one condition is true.\n")
@@ -632,10 +901,32 @@ def or_operator():
     if x > 5 or y < 10:
         print("At least one condition is true")
     else:
-        print("Both conditions are false")
-    
-    input("\nPress Any to go back.")
-    clear_screen()
+        print("Both conditions are false\n")
+    while True:
+        ask1 = input("Do you want to try it for youself? [yes/no] ")
+        if ask1.lower() == 'yes':
+            clear_screen()
+            print("Loading...")
+            time.sleep(2)
+            clear_screen()
+            print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+            print("\t  OR Operator ")
+            print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+            num1 = int(input("Enter a number: "))
+            num2 = int(input("Enter another number: "))
+            
+            if num1 > 10 or num2 > 10:
+                print("At least one of the numbers is greater than 10.")
+            else:
+                print("Neither of the numbers is greater than 10.")
+                input("\nPress 'Enter' to go back.")
+                clear_screen()
+                break
+        elif ask1.lower() == 'no':
+            clear_screen()
+            logical_operators_menu()
+        elif ask1.lower() == " " or '':
+            continue
 
 def not_operator():
     print("The `not` operator returns `True` if the condition is false.\n")
@@ -648,10 +939,38 @@ def not_operator():
     if not(x > 5):
         print("Condition is false")
     else:
-        print("Condition is true")
+        print("Condition is true\n")
     
-    input("\nPress Any to go back.")
-    clear_screen()
+    while True:
+        ask1 = input("Do you want to try it for youself? [yes/no] ")
+        if ask1.lower() == 'yes':
+            clear_screen()
+            print("Loading...")
+            time.sleep(2)
+            clear_screen()
+            print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+            print("\t  NOT Operator ")
+            print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+
+            has_ticket_input = input("Do you have a ticket? (yes/no): ").lower()
+            if has_ticket_input == "yes":
+                has_ticket = True
+            else:
+                has_ticket = False
+
+            if not has_ticket:
+                print("You need a ticket to enter.")
+                break
+            else:
+                print("You can enter with your ticket. Enjoy the event!")
+                input("\nPress 'Enter' to go back.")
+                clear_screen()
+                break
+        elif ask1.lower() == 'no':
+            clear_screen()
+            logical_operators_menu()
+        elif ask1.lower() == " " or '':
+            continue
 
 def is_operator():
     print("The `is` operator checks if two variables refer to the same object.\n")
@@ -662,14 +981,35 @@ def is_operator():
     print("\nOutput:")
     
     x = [1, 2, 3]
-    y = x  # y refers to the same object as x
+    y = x  
     if x is y:
-        print("x and y are the same object")
+        print("x and y are the same object\n")
     else:
-        print("x and y are different objects")
+        print("x and y are different objects\n")
     
-    input("\nPress Any to go back.")
-    clear_screen()
+    while True:
+        ask1 = input("Do you want to try it for youself? [yes/no] ")
+        if ask1.lower() == 'yes':
+            clear_screen()
+            print("Loading...")
+            time.sleep(2)
+            clear_screen()
+            print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+            print("\t  IS Operator ")
+            print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+            user_input = input("Enter something (or leave blank): ")
+            if user_input is None:
+                print("You didn't enter anything (input is None).")
+            else:
+                print(f"You entered: {user_input}")
+                input("\nPress 'Enter' to go back.")
+                clear_screen()
+                break
+        elif ask1.lower() == 'no':
+            clear_screen()
+            logical_operators_menu()
+        elif ask1.lower() == " " or '':
+            continue
 
 def is_not_operator():
     print("The `is not` operator checks if two variables refer to different objects.\n")
@@ -680,14 +1020,44 @@ def is_not_operator():
     print("\nOutput:")
     
     x = [1, 2, 3]
-    y = [1, 2, 3]  # y refers to a different object than x, even though the contents are the same
+    y = [1, 2, 3]  
     if x is not y:
-        print("x and y are different objects")
+        print("x and y are different objects\n")
     else:
-        print("x and y are the same object")
-    
-    input("\nPress Any to go back.")
-    clear_screen()
+        print("x and y are the same object\n")
+    while True:
+        ask1 = input("Do you want to try it for youself? [yes/no] ")
+        if ask1.lower() == 'yes':
+            clear_screen()
+            print("Loading...")
+            time.sleep(2)
+            clear_screen()
+            print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+            print("\tIS NOT Operator ")
+            print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+            def check_value(value):
+                while True:
+                    if value is not None:
+                        print(f"The value is {value}.")
+                        input("\nPress 'Enter' to go back.")
+                        clear_screen()
+                        logical_operators_menu()
+
+                    else:
+                        print("The value is None.")
+                        input("\nPress 'Enter' to go back.")
+                        clear_screen()
+                        logical_operators_menu()
+            user_input = input("Enter something: ")
+            check_value(user_input)  
+            check_value(None)
+          
+                
+        elif ask1.lower() == 'no':
+            clear_screen()
+            logical_operators_menu()
+        elif ask1.lower() == " " or '':
+            continue
 
 
 def py_loop_menu():
@@ -715,46 +1085,223 @@ def py_loop_menu():
 
 
 def for_loop():
+    print("\t\t-- FOR LOOP --")
+    print("Explanation: A 'for' loop is used to iterate over a sequence (like a list or a range).")
+    print("It automatically handles the loop counter and stops when the sequence ends.")
+    print("Code:")
+    print("for i in range(5):\n\tprint(i)")
+    print("Output:")
+    for i in range(5):
+        print(i)
+    print()    
     while True:
-        print("\t\t-- FOR LOOP --")
-        print("Explanation: A 'for' loop is used to iterate over a sequence (like a list or a range).")
-        print("It automatically handles the loop counter and stops when the sequence ends.")
-        print("Code:")
-        print("for i in range(5):\n\tprint(i)")
-        print("Output:")
-        for i in range(5):
-            print(i)
-        input("\nPress Enter to go back.")
-        clear_screen()
-        if input == input:
+        ask1 = input("Do you want to try it? [yes/no] ")
+        if ask1.lower() == 'yes':
+            clear_screen()
+            print("Loading... Activity 11")
+            time.sleep(2)
+            clear_screen()
+            print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+            print("          FOR LOOP  ")
+            print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+            from activity11 import loopingname_ex1
+            loopingname_ex1()
+            while True:
+                ask2 = input("\nDo you want to try another example? [yes/no] ")
+                if ask2.lower() == 'yes':
+                    clear_screen()
+                    print("Loading... Activity 12")
+                    time.sleep(2)
+                    clear_screen()
+                    print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                    print("          ODD OR EVEN ")
+                    print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                    from activity12 import forloop_ex2
+                    forloop_ex2()
+                    while True:
+                        ask3 = input("\nDo you want to try another example? [yes/no] ")
+                        if ask3.lower() == 'yes':
+                            clear_screen()
+                            print("Loading... Activity 13")
+                            time.sleep(2)
+                            clear_screen()
+                            print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                            print("          FACTORIAL ")
+                            print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                            from activity13 import forloop_ex3
+                            forloop_ex3()
+                            while True:
+                                ask4 = input("\nDo you want to try another example? [yes/no] ")
+                                if ask4.lower() == 'yes':
+                                    clear_screen()
+                                    print("Loading... Activity 14")
+                                    time.sleep(2)
+                                    clear_screen()
+                                    print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                                    print("          FOR LOOP [2] ")
+                                    print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                                    from activity14 import forloop_ex4
+                                    forloop_ex4()
+                                    while True:
+                                        ask5 = input("\nDo you want to try another example? [yes/no] ")
+                                        if ask5.lower() == 'yes':
+                                            clear_screen()
+                                            print("Loading... Activity 15")
+                                            time.sleep(2)
+                                            clear_screen()
+                                            print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                                            print("          FOR LOOP [3] ")
+                                            print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                                            from activity15 import forloop_ex5
+                                            forloop_ex5()
+                                            while True:
+                                                ask6 = input("\nDo you want to try another example? [yes/no] ")
+                                                if ask6.lower() == 'yes':
+                                                    clear_screen()
+                                                    print("Loading... Activity 16")
+                                                    time.sleep(2)
+                                                    clear_screen()
+                                                    print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                                                    print("          FOR LOOP [4] ")
+                                                    print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                                                    from activity16 import forloop_ex6
+                                                    forloop_ex6()
+                                                    while True:
+                                                        ask7 = input("\nDo you want to try another example? [yes/no] ")
+                                                        if ask7.lower() == 'yes':
+                                                            clear_screen()
+                                                            print("Loading... Activity 17")
+                                                            time.sleep(2)
+                                                            clear_screen()
+                                                            print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                                                            print("          FOR LOOP [5] ")
+                                                            print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                                                            from activity17 import forloop_ex7
+                                                            forloop_ex7()
+                                                            while True:
+                                                                ask8 = input("\nDo you want to try another example? [yes/no] ")
+                                                                if ask8.lower() == 'yes':
+                                                                    clear_screen()
+                                                                    print("Loading... Activity 18")
+                                                                    time.sleep(2)
+                                                                    clear_screen()
+                                                                    print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                                                                    print("          FOR LOOP [6] ")
+                                                                    print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                                                                    from activity18 import forloop_ex8
+                                                                    forloop_ex8()
+                                                                    while True:
+                                                                        ask9 = input("\nDo you want to try another example? [yes/no] ")
+                                                                        if ask9.lower() == 'yes':
+                                                                            clear_screen()
+                                                                            print("Loading... Activity 19")
+                                                                            time.sleep(2)
+                                                                            clear_screen()
+                                                                            print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                                                                            print("          FOR LOOP [7] ")
+                                                                            print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                                                                            from activity19 import forloop_ex9
+                                                                            forloop_ex9()
+                                                                            input("\nPress 'Enter' to go back.")
+                                                                            clear_screen()
+                                                                            py_loop_menu()
+                                                                        elif ask9.lower() == 'no':
+                                                                            clear_screen()
+                                                                            py_loop_menu()
+                                                                        elif ask9.lower() == " " or '':
+                                                                            continue
+                                                                elif ask8.lower() == 'no':
+                                                                    clear_screen()
+                                                                    py_loop_menu()
+                                                                elif ask8.lower() == " " or '':
+                                                                    continue
+                                                        elif ask7.lower() == 'no':
+                                                            clear_screen()
+                                                            py_loop_menu()
+                                                        elif ask7.lower() == " " or '':
+                                                            continue
+                                                elif ask6.lower() == 'no':
+                                                    clear_screen()
+                                                    py_loop_menu()
+                                                elif ask6.lower() == " " or '':
+                                                    continue
+                                        elif ask5.lower() == 'no':
+                                            clear_screen()
+                                            py_loop_menu()
+                                        elif ask5.lower() == " " or '':
+                                            continue
+                                elif ask4.lower() == 'no':
+                                    clear_screen()
+                                    py_loop_menu()
+                                elif ask4.lower() == " " or '':
+                                    continue
+                        elif ask3.lower() == 'no':
+                            clear_screen()
+                            py_loop_menu()
+                        elif ask3.lower() == " " or '':
+                            continue
+                elif ask2.lower() == 'no':
+                    clear_screen()
+                    py_loop_menu()
+                elif ask2.lower() == " " or '':
+                    continue
+        elif ask1.lower() == 'no':
+            clear_screen()
             py_loop_menu()
-            break
-        else: 
-            print("invalid input")
-            continue          
+        elif ask1.lower() == " " or '':
+            continue
         
     
 def while_loop():
+    print("\t\t-- WHILE LOOP --")
+    print("Explanation: A 'while' loop repeatedly executes a block of code as long as the given condition is True.")
+    print("It requires explicit management of the loop counter or condition inside the loop.")
+    print("Code:")
+    print("i = 0\nwhile i < 5:\n\tprint(i)\n\ti += 1")
+    print("Output:")
+    i = 0
+    while i < 5:
+        print(i)
+        i += 1
+    print()
     while True:
-        print("\t\t-- WHILE LOOP --")
-        print("Explanation: A 'while' loop repeatedly executes a block of code as long as the given condition is True.")
-        print("It requires explicit management of the loop counter or condition inside the loop.")
-        print("Code:")
-        print("i = 0\nwhile i < 5:\n\tprint(i)\n\ti += 1")
-        print("Output:")
-        i = 0
-        while i < 5:
-            print(i)
-            i += 1
-        input("\nPress Enter to go back.")
-        clear_screen()
-        if input == input:
+        ask8 = input("\nDo you want to try another example? [yes/no] ")
+        if ask8.lower() == 'yes':
+            clear_screen()
+            print("Loading... Activity 20")
+            time.sleep(2)
+            clear_screen()
+            print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+            print("          TRIANGLE ")
+            print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+            from activity20 import whileloop_ex1
+            whileloop_ex1()
+            while True:
+                ask9 = input("\nDo you want to try another example? [yes/no] ")
+                if ask9.lower() == 'yes':
+                    clear_screen()
+                    print("Loading... Activity 21")
+                    time.sleep(2)
+                    clear_screen()
+                    print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
+                    print("             NAME ")
+                    print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+                    from activity21 import whileloop_ex2
+                    whileloop_ex2()
+                    input("\nPress 'Enter' to go back.")
+                    clear_screen()
+                    py_loop_menu()
+                elif ask9.lower() == 'no':
+                    clear_screen()
+                    py_loop_menu()
+                elif ask9.lower() == " " or '':
+                    continue
+        elif ask8.lower() == 'no':
+            clear_screen()
             py_loop_menu()
-            break
-        else: 
-            print("invalid input")
-            continue          
-        
+        elif ask8.lower() == " " or '':
+            continue
+    
 
 
 def py_functions_menu():
@@ -952,17 +1499,18 @@ def menu():
         else:
             print("Invalid option, Try again!")
             continue
-while True:
-    name = input("Good day! May I know your name? ").title()
-    print(f"Hi, {name}")
-    start = input("Do you want to start the Program? (Yes/No) \n --> ")
+menu()
+# while True:
+#     name = input("Good day! May I know your name? ").title()
+#     print(f"Hi, {name}")
+#     start = input("Do you want to start the Program? (Yes/No) \n --> ")
     
-    clear_screen()
+#     clear_screen()
 
-    if start.lower() == "yes":
-        print("Lets Start!")
-        menu()
-        break
-    else:
-        print("Okay, Have a great day!")
-        break
+#     if start.lower() == "yes":
+#         print("Lets Start!")
+#         menu()
+#         break
+#     else:
+#         print("Okay, Have a great day!")
+#         break
